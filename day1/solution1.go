@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// get the file and pass it to the scanner
-	file, _ := os.Open("input1.txt")
+	file, _ := os.Open("input")
 	scanner := bufio.NewScanner(file)
 
 	num1 := 0  // last number
