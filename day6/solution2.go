@@ -29,37 +29,33 @@ func main() {
 		ogFish[i], _ = strconv.Atoi(fish)
 	}
 
-	// // instantiate slice for how many starter fish of each age there are
-	// startingAges := make([]int, 6)
+	// build slice for all possible ages of fish
+	ages := make([]int, 9)
 
-	// // count how many starter fish of each age there are
-	// for _, fish := range ogFish {
-	// 	startingAges[fish]++
-	// }
-
-	// instantiate slice representing number of fish born on each day
-	firstBirthdays := make([]int, 256)
-	// nonFirstBirthdays := make([]int64, 256)
-
-	// get ogFish first births added to birthdaylist
+	// add starter fish to the ages slice in their appropriate position
 	for _, fish := range ogFish {
-		firstBirthdays[fish]++
+		ages[fish]++
 	}
 
-	// get all ogFish subsequent births added to the list
-	for i, birth := range firstBirthdays {
-		if i+6 < len(firstBirthdays) {
-			firstBirthdays[i+6] = birth
+	// go through all 256 days incrementing counts of fish in each age group
+	for i := 0; i < 256; i++ {
+		births := 0
+		for j, fish := range ages {
+			if j == 0 {
+				births = fish
+			} else {
+				ages[j-1] = fish
+			}
 		}
+		ages[6] += births
+		ages[8] = births
 	}
 
-	// we now have every single child that the ogFish will have in our slice
-	// now we need to start calculating all of those childrens children
-
-	//calculate how many times those children will have children
-	// for i, fish := range
-
-	fmt.Println(firstBirthdays)
-
-	// fmt.Printf("After 80 days, there are %d lanternfish\n", fishies)
+	// add all of the current fish together
+	// var fishies int64
+	fishies := 0
+	for _, fish := range ages {
+		fishies += fish
+	}
+	fmt.Printf("After 256 days, there are %d lanternfish\n", fishies)
 }
