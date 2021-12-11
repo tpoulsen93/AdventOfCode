@@ -8,6 +8,7 @@ import (
 )
 
 // I pulled the stack implementation from https://www.educative.io/edpresso/how-to-implement-a-stack-in-golang
+// -----------------------------------------------------------------------------------------------------------
 type Stack []rune
 
 // IsEmpty: check if stack is empty
@@ -30,7 +31,7 @@ func (s *Stack) Pop() (rune, bool) {
 		*s = (*s)[:index]      // Remove it from the stack by slicing it off.
 		return element, true
 	}
-}
+} // ---------------------------------------------------------------------------------------------------------
 
 // check if a rune is an opening bracket
 func isOpener(target rune) bool {
