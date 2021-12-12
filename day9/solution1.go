@@ -40,7 +40,7 @@ func checkRight(x, y int, lines [100][100]int) bool {
 }
 
 // check neighbors, return true for a low spot
-func checkNeighbors(x, y int, lines [100][100]int) bool {
+func isLowSpot(x, y int, lines [100][100]int) bool {
 	if checkRight(x, y, lines) && checkLeft(x, y, lines) && checkAbove(x, y, lines) && checkBelow(x, y, lines) {
 		return true
 	} else {
@@ -70,7 +70,7 @@ func main() {
 	risk := 0
 	for x := range lines {
 		for y := range lines {
-			if checkNeighbors(x, y, lines) {
+			if isLowSpot(x, y, lines) {
 				risk += lines[x][y] + 1
 			}
 		}
