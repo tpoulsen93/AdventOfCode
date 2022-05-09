@@ -89,7 +89,7 @@ func main() {
 		}
 	}
 
-	// loop over the arrays checking for low spots and adding them to the "map"
+	// loop over the arrays checking for low spots and calculating their basin sizes
 	basins := make([]int, 0)
 	for row := range caveMap {
 		for col := range caveMap {
