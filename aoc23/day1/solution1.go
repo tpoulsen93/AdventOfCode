@@ -15,7 +15,7 @@ func isNum(char rune) (int, bool) {
 	return 0, false
 }
 
-func computeLine1(line string, test bool) int {
+func computeLine(line string, test bool) int {
 	firstFound := false
 	var first int
 	var last int
@@ -56,9 +56,9 @@ func main() {
 		line := scanner.Text()
 
 		// Sum the computed value of each line for Part 1
-		sum += computeLine1(line, *test)
+		sum += computeLine(line, *test)
 	}
 
 	// Print the results
-	fmt.Printf("Part 1: %d\n", sum)
+	fmt.Printf("Result: %d\n", sum)
 }

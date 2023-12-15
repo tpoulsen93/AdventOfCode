@@ -139,5 +139,5 @@ func main() {
 	}
 
 	// Print the results
-	fmt.Printf("Part 1: %d\n", sum)
+	fmt.Printf("Result: %d\n", sum)
 }
